@@ -652,7 +652,7 @@ footer a {
   text-decoration: none;
 }
 
-body {
+#bodyIndex {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -664,30 +664,29 @@ body {
   background-color: #f4f4f9;
 }
 
-form {
+#bodyIndex form {
   display: flex;
   flex-direction: column;
   width: 300px;
 }
 
-input,
-button {
+#bodyIndex input, #bodyIndex button {
   margin: 10px 0;
   padding: 10px;
 }
 
-button {
+#bodyIndex button {
   background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
 }
 
-button:hover {
+#bodyIndex button:hover {
   background-color: #0056b3;
 }
 
-#error-message {
+#bodyIndex #error-message {
   color: red;
   font-size: 0.9em;
   text-align: center;
