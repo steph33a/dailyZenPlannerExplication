@@ -4,11 +4,12 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
 
   const enteredPassword = document.getElementById("password").value; // Récupère le mot de passe entré
   const correctPasswordHash = "e99a18c428cb38d5f260853678922e03"; //
+  console.log("Hash attendu :", correctPasswordHash);
   // Fonction pour générer un hash MD5 du mot de passe
   function hashPassword(password) {
     return CryptoJS.MD5(password).toString(); // Utilise CryptoJS pour générer un hash MD5
   }
-
+  console.log("Hash généré à partir du mot de passe saisi :", enteredHash);
   // Compare le hash du mot de passe entré avec le hash correct
   if (hashPassword(enteredPassword) === correctPasswordHash) {
     // Si le mot de passe est correct, enregistre-le dans localStorage
