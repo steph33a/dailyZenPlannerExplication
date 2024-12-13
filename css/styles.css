@@ -266,8 +266,36 @@ footer h3,
 footer h2 {
   color: black;
 }
+@media (min-width: 1000px) {
+  footer .team-members .contacts {
+    display: flex; /* Trois colonnes égales */
+    flex-direction: row;
+    align-items: flex-start;
+
+    gap: 20px; /* Espace entre les colonnes */
+    padding: 20px;
+    list-style: none; /* Supprime les puces des listes */
+    margin: 0; /* Supprime la marge par défaut */
+  }
+  footer .team-members .flexdirectionRow {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.2rem;
+  }
+  footer .team-members .flexdirectionRow li {
+    font-size: 1rem;
+  }
+}
 /* --- Responsive Styles --- */
 @media (max-width: 768px) {
+  footer .team-members .flexdirectionRow {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+  }
+  footer .team-members .flexdirectionRow li {
+    font-size: 1rem;
+  }
   header h1 {
     font-size: 2rem;
   }
@@ -625,7 +653,7 @@ footer h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   padding: 5px;
   margin: 5px;
@@ -660,7 +688,7 @@ footer a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height:  100vh;
+  min-height: 100vh;
   background-color: #f4f4f9;
 }
 
@@ -670,7 +698,8 @@ footer a {
   width: 300px;
 }
 
-#bodyIndex input, #bodyIndex button {
+#bodyIndex input,
+#bodyIndex button {
   margin: 10px 0;
   padding: 10px;
 }
@@ -691,28 +720,32 @@ footer a {
   font-size: 0.9em;
   text-align: center;
 }
-footer li a {
+footer ul li a {
   display: flex;
   flex-direction: row;
   align-items: center; /* Aligne le texte et l'icône sur la même ligne */
   text-decoration: none; /* Enlève le soulignement des liens */
 }
 
-footer li a svg {
+footer ul li a svg {
   margin-left: 5px; /* Ajoute un petit espace entre l'icône et le texte */
   width: 18px; /* Définit la taille de l'icône */
   height: 18px; /* Définit la taille de l'icône */
 }
 
-footer li a:hover {
+footer ul li a:hover {
   font-size: 1.1em; /* Augmente légèrement la taille du texte au survol */
 }
 
-footer li a:visited {
+footer ul li a:visited {
   color: #000; /* Change la couleur du lien après l'avoir visité */
 }
 
 /* Si vous voulez un texte plus grand globalement */
 footer li {
   font-size: 1.2em; /* Augmente la taille du texte des éléments li */
+}
+footer .team-members ul .flexdirectionRow {
+  display: flex;
+  flex-direction: row;
 }
