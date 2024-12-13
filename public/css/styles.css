@@ -1,0 +1,694 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+}
+header {
+  position: relative;
+  background-color: #a8d5ba;
+  color: black;
+  padding: 20px 0;
+  text-align: center;
+  height: 280px;
+  background: #a8d5ba;
+  border-bottom: 20px solid #ffdd75;
+}
+/* Style des feuilles */
+
+/* Gestion des feuilles */
+.leavesLeft,
+.leavesRight {
+  position: absolute;
+  top: 50%; /* Placer le haut des feuilles à la moitié de la hauteur du header */
+  left: 50%; /* Centrer horizontalement */
+  transform: translate(
+    0%,
+    -50%
+  ); /* Décalage de la moitié de leur propre hauteur pour un véritable centrage */
+  width: 50%; /* Ajuster la taille des feuilles */
+  min-width: 300px;
+  height: auto; /* Garder les proportions */
+  z-index: 1; /* Placer les feuilles derrière les autres éléments */
+}
+
+/* Feuille gauche */
+.leavesLeft {
+  left: 0; /* Positionnement à gauche */
+
+  margin-left: 2%; /* Espacement par rapport au contenu */
+}
+
+/* Feuille droite */
+.leavesRight {
+  right: 0; /* Positionnement à droite */
+
+  margin-right: 2%; /* Espacement par rapport au contenu */
+}
+
+/* Adaptabilité pour les écrans plus petits */
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- Header --- */
+
+.logo {
+  position: absolute;
+  width: 405px;
+  left: 50%;
+  top: -30px;
+  filter: drop-shadow(8px 16px 16px rgba(0, 0, 0, 0.5));
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* --- Menu Burger --- */
+#burger {
+  display: none;
+}
+
+/* Style du label (menu burger) */
+input + label {
+  position: absolute;
+  z-index: 100;
+  top: 50px;
+  right: 60px;
+  height: 20px;
+  width: 100px;
+}
+
+input + label span {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 0%;
+  margin-top: -1px;
+  left: 0;
+  display: block;
+  background: #020304;
+  transition: 0.5s;
+}
+
+input + label span:first-child {
+  top: -34px;
+  height: 10px;
+}
+
+input + label span:nth-child(2) {
+  height: 10px;
+  top: 0px;
+}
+
+input + label span:last-child {
+  top: 34px;
+  height: 10px;
+}
+
+label:hover {
+  cursor: pointer;
+}
+input:checked + label {
+  position: fixed;
+  top: 20px; /* Fixer la position de la croix en haut */
+  right: 10px;
+  z-index: 1000;
+  transition: top 0.3s ease; /* Transition pour l'animation */
+}
+/* Transition des icônes du menu burger */
+input:checked + label span {
+  opacity: 0;
+  top: 50%;
+  z-index: 100;
+}
+
+input:checked + label span:first-child {
+  opacity: 1;
+  transform: rotate(405deg);
+  z-index: 100;
+}
+
+input:checked + label span:last-child {
+  opacity: 1;
+  transform: rotate(-405deg);
+  z-index: 100;
+}
+
+/* --- Sidebar (nav) --- */
+input ~ nav {
+  background: #a8d5ba;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0%; /* Initialement, la sidebar est cachée */
+  height: auto; /* Hauteur dynamique qui s'ajuste au contenu */
+  transition: width 0.5s ease-in-out; /* Animation de l'ouverture latérale */
+  z-index: 20;
+}
+
+input:checked ~ nav {
+  width: 60%; /* La largeur de la sidebar au moment de l'ouverture */
+}
+
+/* Style de la liste dans la sidebar */
+input ~ nav ul {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input ~ nav ul li {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  list-style: none;
+}
+
+input:checked ~ nav ul li {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+input ~ nav ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #020304;
+  font-weight: 700;
+  font-family: sans-serif;
+  display: block;
+  padding: 10px 0;
+  font-size: 1.5rem;
+}
+
+input ~ nav ul li a:hover {
+  background-color: #ffdd75;
+  color: #fff;
+}
+
+/* --- Header h1 --- */
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* --- Section Content --- */
+section.content {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+h2,
+h3 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+h2 {
+  color: #75bf06;
+}
+
+h3 {
+  color: #f3d273;
+  text-decoration-line: underline;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+ul li strong {
+  color: #2c3e50;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #a8d5ba;
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 40px;
+  border-top: 20px solid #ffdd75;
+}
+
+footer p {
+  font-size: 1rem;
+}
+footer h3,
+footer h2 {
+  color: black;
+}
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  ul li {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+  input + label {
+    position: absolute;
+    z-index: 100;
+    top: 20px;
+    right: 10px;
+    height: 20px;
+    width: 50px;
+  }
+
+  input + label span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 0%;
+    margin-top: -1px;
+    left: 0;
+    display: block;
+    background: #020304;
+    transition: 0.5s;
+  }
+
+  input + label span:first-child {
+    top: -17px;
+    height: 10px;
+  }
+
+  input + label span:nth-child(2) {
+    height: 10px;
+    top: 0px;
+  }
+
+  input + label span:last-child {
+    top: 17px;
+    height: 10px;
+  }
+
+  label:hover {
+    cursor: pointer;
+  }
+
+  /* Transition des icônes du menu burger */
+  input:checked + label span {
+    opacity: 0;
+    top: 50%;
+    z-index: 100;
+  }
+
+  input:checked + label span:first-child {
+    opacity: 1;
+    transform: rotate(405deg);
+    z-index: 100;
+  }
+
+  input:checked + label span:last-child {
+    opacity: 1;
+    transform: rotate(-405deg);
+    z-index: 100;
+  }
+
+  /* --- Sidebar (nav) --- */
+  input ~ nav {
+    background: #a8d5ba;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0%; /* Initialement, la sidebar est cachée */
+    height: auto; /* Hauteur dynamique qui s'ajuste au contenu */
+    transition: width 0.5s ease-in-out; /* Animation de l'ouverture latérale */
+  }
+
+  input:checked ~ nav {
+    width: 60%; /* La largeur de la sidebar au moment de l'ouverture */
+  }
+
+  /* Style de la liste dans la sidebar */
+  input ~ nav ul {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input ~ nav ul li {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    list-style: none;
+  }
+
+  input:checked ~ nav ul li {
+    opacity: 1;
+    transition-delay: 0.5s;
+  }
+
+  input ~ nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #020304;
+    font-weight: 700;
+    font-family: sans-serif;
+    display: block;
+    padding: 10px 0;
+    font-size: 1.5rem;
+  }
+
+  input ~ nav ul li a:hover {
+    background-color: #ffdd75;
+    color: #fff;
+  }
+
+  input:checked ~ nav {
+    width: 100%; /* La largeur de la sidebar au moment de l'ouverture */
+  }
+  input:checked + label span {
+    opacity: 0;
+    z-index: 100;
+  }
+  input:checked + label span:first-child {
+    opacity: 1;
+    top: 1%;
+    transform: rotate(405deg);
+    z-index: 100;
+  }
+
+  input:checked + label span:last-child {
+    opacity: 1;
+    top: 1%;
+    transform: rotate(-405deg);
+    z-index: 100;
+  }
+  /* .logo {
+    position: absolute;
+    width: 400px;
+    left: 50%;
+    top: -30px;
+    filter: drop-shadow(8px 16px 16px rgba(0, 0, 0, 0.5));
+    transform: translateX(50%);
+  } */
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  ul li {
+    font-size: 0.9rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+  input + label {
+    position: absolute;
+    z-index: 100;
+    top: 20px;
+    right: 10px;
+    height: 20px;
+    width: 50px;
+  }
+
+  input + label span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 0%;
+    margin-top: -1px;
+    left: 0;
+    display: block;
+    background: #020304;
+    transition: 0.5s;
+  }
+
+  input + label span:first-child {
+    top: -17px;
+    height: 10px;
+  }
+
+  input + label span:nth-child(2) {
+    height: 10px;
+    top: 0px;
+  }
+
+  input + label span:last-child {
+    top: 17px;
+    height: 10px;
+  }
+
+  label:hover {
+    cursor: pointer;
+  }
+
+  /* Transition des icônes du menu burger */
+  input:checked + label span {
+    opacity: 0;
+    top: 50%;
+    z-index: 100;
+  }
+
+  input:checked + label span:first-child {
+    opacity: 1;
+    transform: rotate(405deg);
+    z-index: 100;
+  }
+
+  input:checked + label span:last-child {
+    opacity: 1;
+    transform: rotate(-405deg);
+    z-index: 100;
+  }
+
+  /* --- Sidebar (nav) --- */
+  input ~ nav {
+    background: #a8d5ba;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0%; /* Initialement, la sidebar est cachée */
+    height: auto; /* Hauteur dynamique qui s'ajuste au contenu */
+    transition: width 0.5s ease-in-out; /* Animation de l'ouverture latérale */
+  }
+
+  input:checked ~ nav {
+    width: 60%; /* La largeur de la sidebar au moment de l'ouverture */
+  }
+
+  /* Style de la liste dans la sidebar */
+  input ~ nav ul {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input ~ nav ul li {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    list-style: none;
+  }
+
+  input:checked ~ nav ul li {
+    opacity: 1;
+    transition-delay: 0.5s;
+  }
+
+  input ~ nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #020304;
+    font-weight: 700;
+    font-family: sans-serif;
+    display: block;
+    padding: 10px 0;
+    font-size: 1.5rem;
+  }
+
+  input ~ nav ul li a:hover {
+    background-color: #ffdd75;
+    color: #fff;
+  }
+
+  input:checked ~ nav {
+    width: 100%; /* La largeur de la sidebar au moment de l'ouverture */
+  }
+  input:checked + label span {
+    opacity: 0;
+    z-index: 100;
+  }
+  input:checked + label span:first-child {
+    opacity: 1;
+    top: 1%;
+    transform: rotate(405deg);
+    z-index: 100;
+  }
+
+  input:checked + label span:last-child {
+    opacity: 1;
+    top: 1%;
+    transform: rotate(-405deg);
+    z-index: 100;
+  }
+  /* .logo {
+    position: absolute;
+    width: 400px;
+    left: 50%;
+
+    top: -30px;
+    filter: drop-shadow(8px 16px 16px rgba(0, 0, 0, 0.5));
+    transform: translateX(50%);
+  } */
+}
+
+/* --- Team Members (flex display) --- */
+.team-members {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.team-members ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3px;
+  margin: 3px;
+}
+.team-members ul li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  color: black;
+}
+.team-members ul li a,
+.team-members p {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  color: black;
+}
+footer a {
+  color: black;
+  text-decoration: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+input,
+button {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#error-message {
+  color: red;
+  font-size: 0.9em;
+  text-align: center;
+}

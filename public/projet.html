@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DailyZenPlanner</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <script>
+      // Vérification de la présence du mot de passe dans localStorage
+      const password = localStorage.getItem("password");
+      if (password !== "votreMotDePasse") {
+        // Si le mot de passe n'est pas correct, redirigez l'utilisateur
+        window.location.href = "/login.html";;
+      }
+    </script>
+    <header id="headerMain">
+      <!-- <div class="container">
+        <h1>DailyZenPlanner</h1>
+      </div> -->
+    </header>
+
+    <section class="content">
+      <div class="container">
+        <h2 id="introduction">Introduction</h2>
+        <p>L’objectif de DailyZenPlanner est d’offrir des outils efficaces et intuitifs pour aider les utilisateurs à mieux organiser leur quotidien et à surmonter leurs difficultés d’organisation. Dans le futur, l’application évoluera progressivement pour devenir une plateforme complète et holistique, intégrant, étape par étape, de nouvelles fonctionnalités dédiées à la gestion du bien-être et de la santé. À chaque mise à jour, les utilisateurs pourront télécharger une version enrichie, offrant un éventail de fonctionnalités toujours plus large.
+        <h2 id="besoinsUtilisateurs">Besoins des Utilisateurs</h2>
+        <p>
+          Les utilisateurs de <strong>DailyZenPlanner</strong> cherchent à
+          répondre à plusieurs besoins fondamentaux pour améliorer leur qualité
+          de vie. Parmi les plus notables, on retrouve :
+        </p>
+        <ul>
+          <li>
+            <strong>Centralisation de l'information :</strong> L’utilisateur a
+            besoin d'un endroit unique pour retrouver les informations qu’il
+            utilise régulièrement, telles que ses contacts, ses rendez-vous et
+            des données spécifiques sur des événements.
+          </li>
+          <li>
+            <strong>Gestion des contacts :</strong> La possibilité de créer un
+            carnet de contacts avec des informations pratiques comme les numéros
+            de téléphone, les emails et des notes personnelles.
+          </li>
+          <li>
+            <strong>Agenda personnalisé :</strong> Un agenda flexible qui permet
+            d'ajouter des informations spécifiques à chaque événement (ex :
+            documents à préparer, détails à prendre en compte pour un
+            rendez-vous, etc.).
+          </li>
+          <li>
+            <strong>Liste des URL utiles :</strong> Un espace pour stocker et
+            organiser ses liens favoris par type d’utilisation (travail,
+            loisirs, études, etc.).
+          </li>
+          <li>
+            <strong>Optimisation de la gestion du temps :</strong> L’utilisateur
+            souhaite mieux gérer son temps et ses priorités tout en prenant soin
+            de son bien-être. Il a besoin d'un outil pour suivre ses objectifs
+            et s'assurer qu'ils sont atteints sans compromettre sa santé mentale
+            et physique.
+          </li>
+          <li>
+            <strong>Mise en place et suivi des habitudes saines :</strong>
+            L’application doit permettre à l'utilisateur d’installer
+            progressivement des habitudes saines et de suivre leur évolution,
+            afin d’assurer une transformation durable.
+          </li>
+        </ul>
+
+        <h2 id="forWorkShop">Fonctionnalités Intégrées pour le Workshop</h2>
+        <p>
+          Dans le cadre de ce workshop, nous avons décidé de nous concentrer sur
+          certaines fonctionnalités de base qui permettront de répondre aux
+          besoins identifiés tout en garantissant une utilisation simple et
+          efficace. Ces fonctionnalités sont les suivantes :
+        </p>
+
+        <h3>Gestionnaire d’utilisateurs</h3>
+        <ul>
+          <li>
+            L'utilisateur pourra se connecter à l’application et gérer ses
+            informations personnelles de manière sécurisée.
+          </li>
+        </ul>
+
+        <h3>Agenda</h3>
+        <ul>
+          <li>
+            <strong>Ajout et gestion d’événements :</strong> L'utilisateur peut
+            ajouter, modifier et supprimer des événements de son agenda
+            personnel.
+          </li>
+          <li>
+            <strong>Notifications et rappels :</strong> Des rappels automatiques
+            sont envoyés via notifications push ou par e-mail pour les
+            événements importants.
+          </li>
+          <li>
+            <strong>Vue personnalisable :</strong> L’agenda est disponible en
+            vue journalière, hebdomadaire et mensuelle, permettant à
+            l’utilisateur de mieux visualiser son emploi du temps.
+          </li>
+        </ul>
+
+        <h3>Carnet de contacts</h3>
+        <ul>
+          <li>
+            <strong>Ajout de contacts :</strong> Création et gestion de contacts
+            personnels (nom, prénom, téléphone, e-mail, etc.).
+          </li>
+          <li>
+            <strong>Groupes de contacts :</strong> Possibilité de créer des
+            groupes pour un accès rapide (amis, famille, travail, etc.).
+          </li>
+        </ul>
+
+        <h3>Carnet d’URL utiles</h3>
+        <ul>
+          <li>
+            <strong>Personnalisation :</strong> L’utilisateur peut enregistrer
+            et organiser ses URL favorites pour y accéder rapidement.
+          </li>
+          <li>
+            <strong>Catégories :</strong> Les liens peuvent être classés par
+            type d’utilisation (travail, études, loisirs, etc.).
+          </li>
+        </ul>
+
+        <h3>Liste des courses</h3>
+        <ul>
+          <li>
+            <strong>Création et gestion :</strong> L’utilisateur peut créer des
+            listes de courses et les organiser par catégories (aliments,
+            produits ménagers, etc.).
+          </li>
+          <li>
+            <strong>Partage :</strong> Il est possible de partager ces listes
+            avec d'autres utilisateurs.
+          </li>
+        </ul>
+
+        <h3>Daily Tips</h3>
+        <ul>
+          <li>
+            <strong>Conseils personnalisés :</strong> Un conseil quotidien est
+            proposé à l’utilisateur pour améliorer son organisation et sa
+            gestion du temps.
+          </li>
+          <li>
+            <strong>Notifications push :</strong> Ces conseils seront
+            accessibles directement via des notifications push ou dans une
+            section dédiée de l’application.
+          </li>
+        </ul>
+
+        <h2 id="suppFonctionnalités">Améliorations et Fonctionnalités Complémentaires</h2>
+        <p>
+          Bien que le cadre du workshop se limite à certaines fonctionnalités,
+          nous prévoyons d’ajouter des fonctionnalités complémentaires pour
+          rendre DailyZenPlanner encore plus complet et holistique. Ces ajouts
+          permettront de répondre de manière plus ciblée aux besoins individuels
+          de chaque utilisateur.
+        </p>
+
+        <h3>Évaluation du Bien-être</h3>
+        <ul>
+          <li>
+            <strong>Questionnaire d'évaluation :</strong> Un questionnaire
+            détaillé permettra d’évaluer les domaines de vie de l’utilisateur
+            nécessitant des améliorations (gestion du temps, stress, sommeil,
+            alimentation). Ces réponses permettront de personnaliser le plan
+            d’action de l’utilisateur.
+          </li>
+        </ul>
+
+        <h3>Objectifs Progressifs et Personnalisation</h3>
+        <ul>
+          <li>
+            <strong>Objectifs personnalisés :</strong> L’utilisateur pourra
+            choisir un maximum de deux habitudes à intégrer dans son quotidien.
+            Ces habitudes seront ajustées selon ses priorités et ses besoins
+            personnels, afin d'éviter la surcharge et d'assurer une progression
+            mesurable.
+          </li>
+          <li>
+            <strong>Sous-objectifs :</strong> Chaque objectif pourra être
+            découpé en sous-objectifs pour faciliter sa gestion et garantir un
+            sentiment de réussite à chaque étape franchie.
+          </li>
+        </ul>
+
+        <h3>Notifications Personnalisées</h3>
+        <ul>
+          <li>
+            <strong>Rappels ajustables :</strong> Des notifications seront
+            envoyées pour rappeler à l'utilisateur ses objectifs et ses
+            habitudes à intégrer. La fréquence des rappels pourra être
+            personnalisée selon les besoins de l'utilisateur, et ces
+            notifications seront conçues pour soutenir sans submerger.
+          </li>
+        </ul>
+
+        <h3>Ressources en Bien-être Mental</h3>
+        <ul>
+          <li>
+            <strong>Moteur de recherche interne :</strong> L’application offrira
+            un accès à des articles, vidéos et conseils sur la gestion du
+            stress, l’équilibre émotionnel et la productivité. Ces ressources
+            accompagneront l’utilisateur tout au long de son parcours.
+          </li>
+        </ul>
+
+        <h3>Approche Holistique</h3>
+        <ul>
+          <li>
+            <strong>Suivi de tous les aspects du bien-être :</strong>
+            L’application encouragera l’utilisateur à prendre en compte tous les
+            aspects de son bien-être, notamment l'alimentation, l’activité
+            physique et la gestion du stress, pour créer une transformation
+            durable.
+          </li>
+        </ul>
+
+        <h3>Le planning dynamique de DailyZenPlanner</h3>
+        <p>
+          Le Planning Dynamique de <strong>DailyZenPlanner</strong> est conçu
+          pour équilibrer les obligations et le bien-être personnel. Il intègre
+          les événements incontournables (travail, rendez-vous, etc.) et les
+          tâches flexibles, comme les nouvelles habitudes à adopter, ajustées en
+          fonction des priorités et du temps disponible.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Mini-tâches :</strong> L’application propose des mini-tâches
+            quotidiennes directement liées aux objectifs de l’utilisateur,
+            permettant une progression régulière sans surcharge.
+          </li>
+          <li>
+            <strong>Personnalisation :</strong> Elle prend également en compte
+            les caractéristiques personnelles de l’utilisateur, telles que la
+            capacité d’attention, les moments de productivité maximale et les
+            besoins de détente, pour offrir un planning personnalisé.
+          </li>
+        </ul>
+
+        <p>
+          Cela garantit un équilibre entre travail et récupération, soutenant
+          une gestion du temps optimale et un bien-être durable.
+        </p>
+
+        <h2 id="conclusion">Conclusion</h2>
+        <p>
+          En combinant des fonctionnalités pratiques pour la gestion du temps,
+          des contacts et des habitudes, ainsi qu’une approche holistique du
+          bien-être, <strong>DailyZenPlanner</strong> est conçu pour accompagner
+          les utilisateurs dans leur transformation progressive vers un mode de
+          vie plus équilibré. Grâce à une gestion personnalisée des objectifs,
+          un planning quotidien ajusté et un soutien constant via des
+          notifications et des ressources bien-être, l’application permettra à
+          chaque utilisateur de réaliser ses objectifs de manière durable tout
+          en préservant son équilibre personnel et professionnel.
+        </p>
+        
+      </div>
+    </section>
+
+    <footer>
+      <div id="contacts"class="container">
+        <section id="contacts">
+          <h2>L'équipe</h2>
+          <p>Les membres de l’équipe : Alexis, Julien, Stéphanie</p>
+          <div class="team-members">
+            <h3>Contactez-nous</h3>
+            <ul>
+              <li>
+                <h3>Alexis Marcks</h3>
+                <ul>
+                  <li><a href="./assets/pdf/cv-alexis-marckx.png" target="_blank"">
+                    Carte de visite
+                </a></li>
+                  <li><a href="./assets/pdf/CV_WebDev-Marckx-Alexis.pdf" target="_blank" >Télécharger la version PDF</a></li>
+                  <li>lex.cram@proton.me</li>
+                </ul>
+              </li>
+              <li>
+                <h3>Julien Artisien</h3>
+                <ul>
+                  <li><a href="./assets/pdf/cv-julien-artisien.pdf" target="_blank" >Télécharger la version pdf</a></li>
+                  <li>julienartisien63@gmail.com</li>
+                </ul>
+              </li>
+              <li>
+                <h3>Stéphanie Marquant</h3>
+                <ul>
+                  <li><a href="https://steph33a.github.io/StephanieMarquant-DeveloppeurFrontEnd-CV/" target="_blank" >
+                    Site one page</a></li>
+                  <li><a href="./assets/pdf/cv-stephanie-marquant.pdf" target="_blank" >
+                    Télécharger la version pdf
+                </a></li>
+                  <li>stephaniemarquant87@gmail.com</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <p>
+            Pour toute question ou suggestion, n’hésitez pas à nous contacter par email ou par message.
+          </p>
+        </section>
+        <section>
+          <h2><a href="./assets/pdf/">Télécharger print-screen de l'application</a></h2>
+        </section>
+        <p>&copy; 2024 DailyZenPlanner - Tous droits réservés</p>
+      </div>
+    </footer>
+    <script src="./assets/js/header.js"></script>
+  </body>
+</html>
