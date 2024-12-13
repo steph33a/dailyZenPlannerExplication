@@ -6,6 +6,7 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
   const correctPasswordHash = "e99a18c428cb38d5f260853678922e03"; //
   console.log("Hash attendu :", correctPasswordHash);
   // Fonction pour générer un hash MD5 du mot de passe
+  console.log(typeof CryptoJS);
   function hashPassword(password) {
     return CryptoJS.MD5(password).toString(); // Utilise CryptoJS pour générer un hash MD5
   }
