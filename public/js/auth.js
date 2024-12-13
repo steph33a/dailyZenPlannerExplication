@@ -15,7 +15,7 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
     localStorage.setItem("password", enteredPassword);
 
     // Redirige vers la page protégée
-    window.location.href = "/index.html";
+    window.location.href = "/projet.html";
   } else {
     // Si le mot de passe est incorrect, affiche un message d'erreur
     document.getElementById("error-message").style.display = "block";
