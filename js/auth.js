@@ -10,7 +10,7 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
   function hashPassword(password) {
     return CryptoJS.MD5(password).toString(); // Utilise CryptoJS pour générer un hash MD5
   }
-  console.log("Hash généré à partir du mot de passe saisi :", enteredHash);
+  console.log("Hash généré à partir du mot de passe saisi :", hashPassword(enteredPassword));
   // Compare le hash du mot de passe entré avec le hash correct
   if (hashPassword(enteredPassword) === correctPasswordHash) {
     // Si le mot de passe est correct, enregistre-le dans localStorage
