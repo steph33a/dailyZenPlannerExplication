@@ -1,0 +1,9 @@
+<script>
+      console.log("projet.html - Mot de passe local :", localStorage.getItem("password"));
+      // Vérification de la présence du mot de passe dans localStorage
+      const password = localStorage.getItem("password");
+      if (password !== "3eeaca97ed135ec5895c4fe751942712") {
+        // Si le mot de passe n'est pas correct, redirigez l'utilisateur
+        window.location.href = "/login.html";;
+      }
+    </script>
