@@ -3,7 +3,7 @@ document.getElementById("login-form").addEventListener("submit", (event) => {
   event.preventDefault(); // Empêche le rechargement de la page
 
   const enteredPassword = document.getElementById("password").value; // Récupère le mot de passe entré
-  const correctPasswordHash = "e99a18c428cb38d5f260853678922e03"; //
+  const correctPasswordHash = "3eeaca97ed135ec5895c4fe751942712"; //
   console.log("Hash attendu :", correctPasswordHash);
   // Fonction pour générer un hash MD5 du mot de passe
   console.log(typeof CryptoJS);
