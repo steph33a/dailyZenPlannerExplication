@@ -1,20 +1,26 @@
 function renderHeader() {
   //Fetch le template de la navbar
-  return fetch("../assets/components/header.html")
-    .then((response) => response.text())
+  // Fetch le fichier de template
+  return fetch("./assets/components/header.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to load header: ${response.statusText}`);
+      }
+      return response.text();
+    })
     .then((templateHTML) => {
-      // Parsez le contenu du template HTML
+      // Parse le contenu du fichier en DOM
       const parser = new DOMParser();
-      // Transforme le contenu en DOM
       const templateDoc = parser.parseFromString(templateHTML, "text/html");
-      //Récupère le contenu html
-      const header = templateDoc.getElementById("header").content;
-      /** Ajouter ICI les changement au Header tel que l'avatar de l'user par exemple, la liste des notifications, les messages, ... */
-      //Créer un élément DOM avec le contenu du template HTML récupérer
-      let renderHeader = document.importNode(header, true);
-      //Envoie le résultat à la vue
-      document.getElementById("headerMain").appendChild(renderHeader);
-      return true;
-    });
+      const headerTemplate = templateDoc.getElementById("header");
+      if (!headerTemplate) {
+        throw new Error("Header template not found in the file.");
+      }
+
+      // Clone le contenu du template et l'ajoute au DOM
+      const headerContent = headerTemplate.content.cloneNode(true);
+      document.getElementById("headerMain").appendChild(headerContent);
+    })
+    .catch((error) => console.error("Error rendering header:", error));
 }
 renderHeader();
