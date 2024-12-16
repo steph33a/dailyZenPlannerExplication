@@ -338,15 +338,58 @@ footer a {
   p {
     font-size: 1rem;
   }
+  input + label {
+    top: 20px;
+    right: 10px;
+    height: 20px;
+    width: 50px;
+  }
+  input + label span {
+    top: 0%;
+    margin-top: -1px;
+    left: 0;
+  }
+
+  input + label span:first-child {
+    top: -17px;
+    height: 10px;
+  }
+
+  input + label span:nth-child(2) {
+    height: 10px;
+    top: 0px;
+  }
+
+  input + label span:last-child {
+    top: 17px;
+    height: 10px;
+  }
+
+  /* Transition des icônes du menu burger */
+  input:checked + label span {
+    z-index: 100;
+    top: 50%;
+  }
+
+  input:checked + label span:first-child {
+    z-index: 100;
+    /* transform: rotate(405deg); */
+  }
+
+  input:checked + label span:last-child {
+    z-index: 100;
+    /* transform: rotate(-405deg); */
+  }
+
   input:checked ~ nav {
     width: 60%;
   }
   input ~ nav ul {
     text-align: center;
-    align-items: center;
+    align-items: left;
   }
   input ~ nav ul li a {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 
