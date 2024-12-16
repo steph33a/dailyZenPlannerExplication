@@ -461,3 +461,44 @@ footer .team-members ul .flexdirectionRow {
 #headerMain ul li a {
   text-align: left;
 }
+
+#bodyIndex {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+}
+
+#bodyIndex form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+#bodyIndex input,
+#bodyIndex button {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+#bodyIndex button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#bodyIndex button:hover {
+  background-color: #0056b3;
+}
+
+#bodyIndex #error-message {
+  color: red;
+  font-size: 0.9em;
+  text-align: center;
+}
