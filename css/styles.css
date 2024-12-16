@@ -375,3 +375,46 @@ footer a {
     width: 100%;
   }
 }
+#bodyIndex #error-message {
+  color: red;
+  font-size: 0.9em;
+  text-align: center;
+}
+footer ul li a {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Aligne le texte et l'icône sur la même ligne */
+  text-decoration: none; /* Enlève le soulignement des liens */
+}
+
+footer ul li a svg {
+  margin-left: 5px; /* Ajoute un petit espace entre l'icône et le texte */
+  width: 18px; /* Définit la taille de l'icône */
+  height: 18px; /* Définit la taille de l'icône */
+}
+
+footer ul li a:hover {
+  font-size: 1.1em; /* Augmente légèrement la taille du texte au survol */
+}
+
+footer ul li a:visited {
+  color: #000; /* Change la couleur du lien après l'avoir visité */
+}
+
+/* Si vous voulez un texte plus grand globalement */
+footer li {
+  font-size: 1.2em; /* Augmente la taille du texte des éléments li */
+}
+footer .team-members ul .flexdirectionRow {
+  display: flex;
+  flex-direction: row;
+}
+#headerMain ul {
+  padding-inline-start: 0px;
+}
+#headerMain ul li {
+  font-size: 0.8rem;
+}
+#headerMain ul li a {
+  text-align: left;
+}
